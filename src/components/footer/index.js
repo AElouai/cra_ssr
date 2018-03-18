@@ -1,23 +1,24 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 const Footer = () => (
   <div className="footer">
     <div className="pure-menu pure-menu-horizontal">
       <ul>
         <li className="pure-menu-item">
-          <a href="http://purecss.io/" className="pure-menu-link">
+          <Link to="/" className="pure-menu-link">
             Home
-          </a>
+          </Link>
         </li>
         <li className="pure-menu-item">
-          <a href="http://twitter.com/yuilibrary/" className="pure-menu-link">
-            Twitter
-          </a>
+          <Link to="/movies" className="pure-menu-link">
+            Movies
+          </Link>
         </li>
         <li className="pure-menu-item">
-          <a href="http://github.com/pure-css/pure/" className="pure-menu-link">
-            GitHub
-          </a>
+          <Link to="/404" className="pure-menu-link">
+            404
+          </Link>
         </li>
       </ul>
     </div>

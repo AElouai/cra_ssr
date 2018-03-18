@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Home from '../screens/home';
 import FoF from '../screens/404';
-import About from '../screens/about';
+import Movies from '../screens/movies';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 class View extends Component {
@@ -9,8 +9,8 @@ class View extends Component {
     return (
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/about/:param" component={About} />
+        <Route exact path="/movies" component={Movies} />
+        <Route exact path="/movies/:param" component={Movies} />
         <Route component={FoF} />
       </Switch>
     );
