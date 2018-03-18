@@ -1,23 +1,46 @@
-import React from 'react';
+// @flow
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addFavorite } from '../../redux/actions/movies';
 
-const Post = props => (
-  <section className="post">
-    <header className="post-header">
-      <a className="post-title" href={`/movies/${props.id}`}>
-        {props.title}
-      </a>
+class Post extends Component {
+  addToFavorite = item => {
+    this.props.addFavorite(item);
+  };
 
-      <p className="post-meta">
-        By <a className="post-author">{props.director}</a> producer{' '}
-        <a className="post-category post-category-js">{props.producer}</a>{' '}
-        Rating <a className="post-author">{props.rt_score} %</a>
-      </p>
-    </header>
+  render() {
+    return (
+      <section className="post">
+        <header className="post-header">
+          <img
+            onClick={() => this.addToFavorite({title:this.props.title, id: this.props.id})}
+            width="48"
+            height="48"
+            alt="Tilo Mitra's avatar"
+            className="post-avatar"
+            src="/img/Favorite.jpeg"
+          />
+          <a className="post-title" href={`/movies/${this.props.id}`}>
+            {this.props.title}
+          </a>
+          <p className="post-meta">
+            By <a className="post-author">{this.props.director}</a> producer{' '}
+            <a className="post-category post-category-js">
+              {this.props.producer}
+            </a>{' '}
+            Rating <a className="post-author">{this.props.rt_score} %</a>
+          </p>
+        </header>
 
-    <div className="post-description">
-      <p>{props.description}</p>
-    </div>
-  </section>
-);
+        <div className="post-description">
+          <p>{this.props.description}</p>
+        </div>
+      </section>
+    );
+  }
+}
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ addFavorite }, dispatch);
 
-export default Post;
+export default connect(null, mapDispatchToProps)(Post);

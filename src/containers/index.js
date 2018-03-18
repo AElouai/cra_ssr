@@ -3,17 +3,19 @@ import {BrowserRouter, View} from '../routes'
 import './index.css';
 import SideBar from '../components/sidebar';
 import Footer from '../components/footer';
+import { connect } from 'react-redux';
 
 class App extends Component {
     render() {
+        console.log('favorites', this.props.favorites);
         return (
             <BrowserRouter>
                 <div className="pure-g">
                     <div id="layout" className="pure-g">
-                        <SideBar />
+                        <SideBar  favorites={this.props.favorites}/>
                         <div className="content pure-u-1 pure-u-md-3-4">
                             <View />
-                            <Footer/>
+                            <Footer />
                         </div>
                     </div>
                 </div>
@@ -22,4 +24,9 @@ class App extends Component {
     }
 }
 
-export default App;
+
+const mapStateToProps = state => ({
+    favorites: state.movies.favorites
+});
+
+export default connect(mapStateToProps)(App);

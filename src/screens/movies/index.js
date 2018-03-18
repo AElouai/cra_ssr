@@ -3,7 +3,7 @@ import Post from '../../components/post';
 
 const baseUrl = 'https://ghibliapi.herokuapp.com/films';
 
-class About extends Component {
+class Movies extends Component {
   constructor(props) {
     super(props);
 
@@ -52,4 +52,4 @@ class About extends Component {
     );
   }
 }
-export default About;
+export default Movies;

@@ -1,7 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import Containers from './containers';
+import { Provider } from 'react-redux';
+import { Route } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
 import registerServiceWorker from './registerServiceWorker';
+import store, { history } from './redux/store';
 
-ReactDOM.render(<Containers />, document.getElementById('root'));
+render(
+    <Provider store={store}>
+        <ConnectedRouter history={history}>
+            <Route component={Containers} />
+        </ConnectedRouter>
+    </Provider>,
+    document.getElementById('root')
+);
+
 registerServiceWorker();
+
