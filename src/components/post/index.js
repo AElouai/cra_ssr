@@ -3,7 +3,9 @@ import React from 'react';
 const Post = props => (
   <section className="post">
     <header className="post-header">
-      <a className="post-title" href={`/movies/${props.id}`}>{props.title}</a>
+      <a className="post-title" href={`/movies/${props.id}`}>
+        {props.title}
+      </a>
 
       <p className="post-meta">
         By <a className="post-author">{props.director}</a> producer{' '}
