@@ -6,19 +6,25 @@ import rootReducer from './reducers';
 
 export const history = createHistory();
 
-const initialState = {};
 const enhancers = [];
 const middleware = [thunk, routerMiddleware(history)];
 
 if (process.env.NODE_ENV === 'development') {
-    const devToolsExtension = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+  const devToolsExtension =
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 
-    if (typeof devToolsExtension === 'function') {
-        enhancers.push(devToolsExtension());
-    }
+  if (typeof devToolsExtension === 'function') {
+    enhancers.push(devToolsExtension());
+  }
 }
 
 const composedEnhancers = compose(applyMiddleware(...middleware), ...enhancers);
+
+const initialState = window.__PRELOADED_STATE__ || {};
+delete window.__PRELOADED_STATE__;
+
+// Allow the passed state to be garbage-collected
 const store = createStore(rootReducer, initialState, composedEnhancers);
 
 export default store;

@@ -4,8 +4,19 @@
   "private": true,
   "dependencies": {
     "@types/react": "^16.0.40",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "body-parser": "^1.18.2",
+    "colors": "^1.2.1",
+    "compression": "^1.7.2",
+    "express": "^4.16.3",
+    "ignore-styles": "^5.0.1",
+    "morgan": "^1.9.0",
+    "node-fetch": "^2.1.1",
+    "path": "^0.12.7",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-helmet": "^5.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.6",
@@ -17,6 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "serve": "yarn build && NODE_ENV=development nodemon server",
+    "deploy": "NODE_ENV=production yarn build && NODE_ENV=production node server",
     "eject": "react-scripts eject"
   }
 }

@@ -2,6 +2,7 @@ import { ADD_FAVORITE } from '../constants/movies';
 
 const initialState = {
     favorites: [],
+    lists: [],
 };
 
 export default (state = initialState, action) => {

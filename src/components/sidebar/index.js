@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
 const SideBar = props => (
   <div className="sidebar pure-u-1 pure-u-md-1-4">
     <div className="header">
@@ -8,17 +7,17 @@ const SideBar = props => (
 
       <nav className="nav">
         <ul className="nav-list">
-            <h5>Favorites Movies</h5>
+          <h5>Favorites Movies</h5>
           <li className="nav-item">
             {props.favorites.map((item, index) => {
               return (
-                <Link
+                <a
                   className="pure-button"
-                  to={`/movies/${item.id}`}
+                  href={`/movies/${item.id}`}
                   key={index}
                 >
                   {item.title}
-                </Link>
+                </a>
               );
             })}
           </li>

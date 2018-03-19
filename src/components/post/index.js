@@ -6,7 +6,7 @@ import { addFavorite } from '../../redux/actions/movies';
 
 class Post extends Component {
   addToFavorite = item => {
-    this.props.addFavorite(item);
+    this.props(item);
   };
 
   render() {
