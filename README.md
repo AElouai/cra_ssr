@@ -14,7 +14,8 @@ we will be using [Redux](https://redux.js.org/) for managing Store , if you want
 for debugging redux install [Redux Devtools Extension](https://github.com/zalmoxisus/redux-devtools-extension).
 
 ## Server
-we will be using [Express]() you are free to use any other Node js server like [KOA]()
+we will be using [Express](http://expressjs.com/) you are free to use any other Node js server like 
+[KOA](http://koajs.com/)
 or even `Go` or another language you just need to change the config ;) 
 
 **we will be using the server mainly for rendering React to Html if you are not requesting data
@@ -30,6 +31,33 @@ we will be using [Jest]()
 because the subject of this repository is to add SSR on top of create-react-app you 
 can still benefit from all CRA functionality 
 
-    yarn start / build / test / eject
+    $ yarn start
+    $ yarn build
+    $ yarn test 
+    $ yarn eject
 
-the SSR functionaly are ensure throught [ExpressJS]()
+the SSR functionally are ensure through [ExpressJS](http://expressjs.com/) server in **Development environment** 
+        
+        $ yarn serve
+        //or 
+        $ npm run serve 
+
+`serve` will Start you project , you need to keep on mind that each time you make a change you have to restart the server.
+
+you can skip restarting the server if you change something in `/server` using [nodemon](https://nodemon.io/)  
+        
+        $ nodemon servre 
+        
+But if you change something in React (`/src`) you will have to restart the server because to build the project , 
+you can add a watcher over all changes and restart the build each time (i am just lazy to do it xD).
+
+####**Production environment** 
+
+CRA ensure the best build for your app , of course you are free to add any more config you like , then Express will serve you Data 
+
+        $ yarn deploy
+        //or 
+        $ npm run deploy
+        
+        
+## `Project Structure`

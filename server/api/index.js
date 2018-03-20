@@ -1,10 +1,10 @@
-import add from './add';
+import cars from './cars';
 
 import express from 'express';
 
 const router = express.Router();
 
-router.use('/api', add);
+router.use('/cars', cars);
 
 
 export default router;
