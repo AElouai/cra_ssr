@@ -10,7 +10,7 @@ import path from 'path';
 // endpoint Api if you ever wanted to use Node REST api
 import api from './api';
 // SSR of Redux State
-import apiState from './setate';
+import apiState from './setSetate';
 // file that render React in Server and return Html output
 import universalLoader from './reactReduxSSR/universal';
 
