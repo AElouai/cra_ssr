@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Home from '../screens/home';
 import FoF from '../screens/404';
 import Movies from '../screens/movies';
+import Books from '../screens/books';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 class View extends Component {
@@ -11,6 +12,8 @@ class View extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/movies" component={Movies} />
         <Route exact path="/movies/:param" component={Movies} />
+          <Route exact path="/books" component={Books} />
+          <Route exact path="/books/:param" component={Books} />
         <Route component={FoF} />
       </Switch>
     );

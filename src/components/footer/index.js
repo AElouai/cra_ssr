@@ -14,6 +14,11 @@ const Footer = () => (
             Movies
           </a>
         </li>
+          <li className="pure-menu-item">
+              <a href="/books" className="pure-menu-link">
+                  Books
+              </a>
+          </li>
         <li className="pure-menu-item">
           <a href="/404" className="pure-menu-link">
             404
