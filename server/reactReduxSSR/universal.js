@@ -6,9 +6,9 @@ import { renderToString } from 'react-dom/server';
 import Helmet from 'react-helmet';
 
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
 import { Route } from 'react-router-dom';
 import createServerStore from './store';
+import { StaticRouter } from 'react-router-dom';
 
 
 import App from '../../src/containers/index';
@@ -41,14 +41,14 @@ const universalLoader = (req, res) => {
     }
 
     // Create a store and sense of history based on the current path
-    const { store, history } = createServerStore(req.path, req.reduxState);
+    const store = createServerStore(req.reduxState);
 
     // Render App in React
     const routeMarkup = renderToString(
       <Provider store={store}>
-        <ConnectedRouter history={history}>
+        <StaticRouter location={req.path}>
           <Route component={App} />
-        </ConnectedRouter>
+        </StaticRouter>
       </Provider>,
     );
 
