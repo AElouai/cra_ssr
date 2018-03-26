@@ -6,7 +6,7 @@ import { addFavorite } from '../../redux/actions/movies';
 
 class Post extends Component {
   addToFavorite = item => {
-    this.props(item);
+    this.props.addFavorite(item);
   };
 
   render() {
@@ -14,7 +14,11 @@ class Post extends Component {
       <section className="post">
         <header className="post-header">
           <img
-            onClick={() => this.addToFavorite({title:this.props.title, id: this.props.id})}
+            onClick={() =>
+              this.addToFavorite({
+                title: this.props.title,
+                id: this.props.id,
+              })}
             width="48"
             height="48"
             alt="Tilo Mitra's avatar"
