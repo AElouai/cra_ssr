@@ -1,6 +1,6 @@
 import express from 'express';
-const router = express.Router();
 
+const router = express.Router();
 const books = [
     {
         "title" : "The Lightning Thief",
@@ -20,14 +20,12 @@ const books = [
     }
 ];
 
-router.get('/', function(req, res, next) {
-  req.reduxState.books.lists = books;
-  next();
+
+router.get('/', (req, res, next) => {
+    res.json(books);
 });
 
-router.get('/:id', function(req, res, next) {
-  req.reduxState.books.lists = books[req.params.id];
-  next();
+router.get('/:id', (req, res, next) => {
+    res.json([books[req.params.id]]);
 });
-
 export default router;

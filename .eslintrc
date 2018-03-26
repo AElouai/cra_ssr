@@ -28,6 +28,9 @@
   },
   "parser": "babel-eslint",
   "plugins": ["flowtype"],
+  "globals": {
+    "window": true
+  },
   "env": {
     "jest": true,
     "browser": true,

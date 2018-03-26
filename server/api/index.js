@@ -1,10 +1,10 @@
-import cars from './cars';
+import books from './books';
 
 import express from 'express';
 
 const router = express.Router();
 
-router.use('/cars', cars);
+router.use('/books', books);
 
 
 export default router;

@@ -1,4 +1,4 @@
-import { ADD_FAVORITE, ADD_MOVIES } from '../constants/movies';
+import { ADD_FAVORITE, ADD_BOOKS } from '../constants/books';
 
 export const addFavorite = favorite => {
   return dispatch => {
@@ -9,7 +9,7 @@ export const addFavorite = favorite => {
   };
 };
 
-export const addMovies = lists => ({
-  type: ADD_MOVIES,
-    lists,
+export const addBooks = lists => ({
+  type: ADD_BOOKS,
+  lists,
 });

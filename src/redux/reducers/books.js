@@ -1,4 +1,4 @@
-import { ADD_FAVORITE } from '../constants/movies';
+import {ADD_FAVORITE, ADD_BOOKS} from '../constants/books';
 
 const initialState = {
     favorites: [],
@@ -12,6 +12,11 @@ export default (state = initialState, action) => {
         ...state,
           favorites: [...state.favorites, action.favorite],
       };
+      case ADD_BOOKS:
+          return {
+              ...state,
+              lists: action.lists,
+          };
 
     default:
       return state;
