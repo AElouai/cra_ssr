@@ -6,7 +6,6 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-    console.log('movies Reducer ', action.type , action);
     switch (action.type) {
     case ADD_FAVORITE:
       return {

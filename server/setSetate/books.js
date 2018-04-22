@@ -1,33 +1,19 @@
-import express from 'express';
+import express from "express";
 const router = express.Router();
+import { getBooks } from "../../src/rest";
 
-const books = [
-    {
-        "title" : "The Lightning Thief",
-        "id" : 0,
-        "director" : "Rick Riordan",
-        "producer" : "Marvel",
-        "description" : "Percy Jackson and the Olympians and Percy Jackson and the Olympians and Percy Jackson and the Olympians and Percy Jackson and the Olympians and Percy Jackson and the Olympians and  ",
-        "rt_score" : 384
-    },
-    {
-        "title" : "The Lightning Thief",
-        "id" : 1,
-        "director" : "Rick Riordan",
-        "producer" : "Marvel",
-        "description" : "Percy Jackson and the Olympians and Percy Jackson and the Olympians and Percy Jackson and the Olympians and Percy Jackson and the Olympians and Percy Jackson and the Olympians and  ",
-        "rt_score" : 384
-    }
-];
-
-router.get('/', function(req, res, next) {
-  req.reduxState.books.lists = books;
-  next();
+router.get("/", function(req, res, next) {
+  getBooks().then(data => {
+    req.reduxState.books.lists = data;
+    next();
+  });
 });
 
-router.get('/:id', function(req, res, next) {
-  req.reduxState.books.lists = books[req.params.id];
-  next();
+router.get("/:id", function(req, res, next) {
+  getBook().then(data => {
+    req.reduxState.books.lists = data;
+    next();
+  });
 });
 
 export default router;

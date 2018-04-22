@@ -2,46 +2,36 @@ import React, { Component } from 'react';
 import Post from '../../components/post';
 import { connect } from 'react-redux';
 import { addBooks } from '../../redux/actions/books';
+import { getBooks } from '../../rest';
 
 const baseUrl = '/api/books';
 class Books extends Component {
 
-  getData() {
-    const param = this.props.match.params.param;
-    const url = param ? `${baseUrl}/${param}` : baseUrl;
-    if (this.props.books.length === 0)
-      fetch(url, {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        method: 'GET',
-      })
-        .then(response => response.json())
-        .then(
-          data => {
-            this.props.addBooks(data);
-            console.log('Data : ', data);
-          },
-          error => {
-            console.log('error : ', error);
-          },
-        );
-  }
+  // getData() {
+  //   const param = this.props.match.params.param;
+  //   const url = param ? `${baseUrl}/${param}` : baseUrl;
+	// getBooks().then(data => {
+  //   console.log("Data : ", data);
+  //   // this.props.addBooks(data);
+  // });
+  // }
+
+  // componentDidMount(){
+  //   console.log('componentDidMount')   
+  //   this.getData();
+  // }
 
   render() {
-    if (this.props.books.length === 0) this.getData();
+    // if (this.props.books && this.props.books.length === 0) this.getData();
 
-    return (
-      <div className="posts">
+    return <div className="posts">
         <h1 className="content-subhead">
           Fiction books List from <a>SomeWhere</a>
         </h1>
-        {this.props.books.map((item, index) => {
+        {this.props.books && this.props.books.map((item, index) => {
           return <Post key={index} {...item} />;
         })}
-      </div>
-    );
+      </div>;
   }
 }
 const mapDispatchToProps = { addBooks };
